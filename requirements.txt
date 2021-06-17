@@ -1,0 +1,10 @@
+
+asgiref==3.3.4
+Django==3.2.4
+OpenGLContext==2.2.0a2
+pygame==2.0.1
+PyOpenGL==3.1.5
+PyOpenGL-accelerate==3.1.5
+PyOpenGL-Demo==3.0.0
+pytz==2021.1
+sqlparse==0.4.1
