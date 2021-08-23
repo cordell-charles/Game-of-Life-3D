@@ -1,0 +1,14 @@
+.title {
+    text-decoration: underline;
+    width: 50% !important;
+    margin: 0 auto !important;
+    display: block !important;
+    float: none !important;
+}
+
+.canvas-container {
+    width: 50% !important;
+    margin: 0 auto !important;
+    display: block !important;
+    float: none !important;
+}

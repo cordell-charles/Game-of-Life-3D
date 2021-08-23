@@ -1,0 +1,91 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Reviews </title>
+</head>
+<body class="review-body">
+
+<div class= "container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-12">
+			<h1> Feel free to leave any comments below! </h1>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-12">
+			<h5> Please feel free to use this space to leave any comments towards the platform. </h5>
+			<h5> Any problems you may have come across, features that did not work or any improvements that have come to mind, comment down below and your post will be saved.</h5>
+		</div>
+	</div>
+</div>
+
+{% for object in objects %}
+<div class="container-fluid padding">
+	<div class="row padding">
+		<div class="col-2 mx-auto">
+			<div class="card" style="width:18rem;">
+				{% if object.image %}
+					<img class="card-img-top" src="{{object.image.url}}" alt="Card image cap"> 
+				{% endif %}
+				<div class="card-body">
+					<h5 class="card-title"> {{ object.title }} </h5>
+					<p class="card-text"> {{ object.content }} </p>
+					<small class= 'text-muted'> {{ object.name }}</small>
+					<small class= 'text-muted'> {{ object.timestamp }}</small>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endfor %}
+
+<div class="fixed-background">
+	<div class="col-12 text-center text=uppercase mt-5">
+		<h1 class="text-secondary pb-3">
+			<i class="fas fa-asterisk"></i> Expand comment box below <i class="fas fa-asterisk"></i>
+		</h1>
+		<div class="border-top border-secondary w-50 mx-auto"></div>
+	</div>
+	<div class="fixed-wrap">
+		<div class="fixed-image"></div>
+	</div>
+</div>
+
+<button class="comments" data-toggle="collapse" data-target="#comment-section"> Click to add a comments </button>
+<div id="comment-section" class="collapse">
+	<div class="container-fluid padding">
+		<div class="row text-center padding">
+			<div class="col-12">
+				<form method='POST' action='.' enctype='multipart/form-data'> {% csrf_token %}
+						{{ form.as_p }}
+					<button type="submit" class="btn btn-primary"> Submit </button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+    <div class="container-fluid padding">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <hr class="light">
+                <h3> Cordell Charles </h3>
+                <p> Birkbeck, University of London</p>
+                <p> MSc Computer Science </p>
+                <p> Email: cordellcharles95@gmail.com </p>
+                <hr class="light">
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+{% endblock %}

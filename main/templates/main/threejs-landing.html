@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/threejs-style.css' %}">
+    <title>Conways game of life</title>
+</head>
+<body>
+    <div class="container">
+        <h1> John Horton Conway's Game of Life - 3D </h1>
+    </div>
+    <canvas class="webgl"></canvas>
+    <section></section>
+
+    <!-- Jumbotron -->
+    <div class="container-fluid">
+        <div class="row jumbotron">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <p class="lead"> Welcome to my website. This platform is designed for users to gain and experience how Conways game of life works. The main focus is my adaptation of the game of life in 3D but users are also welcome to play some 2D variations </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+                <a href="{% url '3d-game' %}"><button type="button"class="btn btn-outline-secondary btn-lg"> Play in 3D! </button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid padding">
+        <div class="row text-center padding">
+            <div class="col-12">
+                <h2> Feel free to connect with me on any of these platforms </h2>
+            </div>
+            <div class="col-12 social padding">
+                <a href="https://www.facebook.com/cordell.charles"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/cordell-charles"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/cordell_charles/"><i class= "fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/cordell-charles"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <hr class="light">
+                    <h3> Cordell Charles </h3>
+                    <p> Birkbeck, University of London</p>
+                    <p> MSc Computer Science </p>
+                    <p> Email: cordellcharles95@gmail.com </p>
+                    <hr class="light">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'javascript/threejs-landing-page-script.js' %}" type="module" charset="UTF-8"></script>
+</body>
+</html>
+
+{% endblock %}

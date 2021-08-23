@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conway's Game of Life 3D</title>
+        <link rel="stylesheet" href="{% static 'stylesheets/3d-game-style.css' %}">
+    </head>
+    <body>
+        <script src="{% static 'javascript/3d-gol/three-js/three.min.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/three-js/OrbitControls.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/dat-gui/dat.gui.min.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/world.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/sceneManager.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/game.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/gameControls.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/gameSettings.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/gui.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol/main.js' %}"></script>
+    </body>
+</html>
+{% endblock %}

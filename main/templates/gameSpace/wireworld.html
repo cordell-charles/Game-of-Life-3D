@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<title> Game of Life - Wireworld </title>
+		<meta charset="UTF-8">
+		<link href="{% static 'stylesheets/wireworld-styles.css' %}" rel="stylesheet" />
+		<script language="javascript" src="{% static 'javascript/wireworld/wireworld_page_events.js' %}"></script>
+		<script language="javascript" src="{% static 'javascript/wireworld/wireworld_ca.js' %}"></script>
+	</head>
+	<body>
+		<article>
+			<section>
+				<aside class="light">
+					<h1 class="heading">Game of Life - Wireworld</h1>
+					<h3>Infomation</h3>
+					<h4 id="Title">Wireworld </h4>
+					<p id="Body"> Brian Silvermans Wireworld is the resulting projection of the game of life that was developed with the intention of simulating electronic circuits. In this game, cells can be in one of 4 states: </p>
+					<ul>
+						<li> Empty (White), </li>
+						<li> Electron head (Blue), </li>
+						<li> Electron tail (Red), </li>
+						<li> Conductor / Wire (Yellow). </li>
+					</ul>	
+					<p> The behaviour of cells is determined as follows: </p>
+					<ul>
+						<li>empty → empty, </li>
+						<li>electron head → electron tail, </li>
+						<li>electron tail → conductor, </li>
+						<li> conductor → electron head if exactly one or two of the neighbouring cells are electron heads, otherwise remains conductor. </li>
+					</ul>
+					<a href="https://en.wikipedia.org/wiki/Wireworld" id="Link" target="blank">Click for more information</a>
+				</aside>
+			</section>
+
+			<section id="canvasContainer">
+				<canvas width="800" height="600" id="canvas"> Canvas not supported! </canvas>
+				<div class= "row text-center padding">
+					<div class="col-12">
+						<h3>Controls</h3>
+						<button type="button" id="Start">Start</button>
+						<button type="button" id="Stop">Stop</button> 
+						<button type="button" id="Reset">Reset</button>
+						<button type="button" id="Clear">Clear</button>
+						<button type="button" id="Example">Example </button> 
+					</div>
+				</div> 
+			</section>
+		</article>
+	</body>
+</html>
+{% endblock %}

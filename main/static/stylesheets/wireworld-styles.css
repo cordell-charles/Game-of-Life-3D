@@ -1,0 +1,236 @@
+BODY
+{
+	background-color: #FFd728;
+	color:black;
+	font-size:16px;
+}
+
+.heading {
+	text-align: center;
+	text-decoration: underline;
+}
+
+A
+{
+	font-size:1.2em;
+	color:#05386B;
+	text-decoration:none;
+}
+
+A:hover
+{
+	color:#5CDB95;
+	background-color:#05386B;
+}
+
+ARTICLE
+{
+	width:85%;
+	margin-left:auto;
+	margin-right:auto;
+	padding-bottom:3em;
+}
+
+HEADER
+{
+	width:85%;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+HEADER NAV
+{
+	background-color:#8EE4AF;
+	height:2em;
+}
+
+HEADER NAV A
+{
+	font-size:1.2em;
+	color:#05386B;
+	background-color:#8EE4AF;
+	text-decoration:none;
+	transition:all 0.2s;
+	border-style:solid;
+	border-width:0;
+	border-color:#05386B;
+	
+	margin-bottom:0.2em;
+	padding-bottom:0.5em;
+	padding-right:1.5%;
+	padding-left:1.5%;
+	display:inline-block;
+}
+
+HEADER NAV A:hover
+{
+	color:#05386B;
+	background-color:#8EE4AF;
+	border-bottom-width:0.5em;
+	padding-bottom:0;
+}
+
+.padded h1,.padded h2,.padded h4,.padded p
+{
+	padding-right:1.5%;
+	padding-left:1.5%;
+}
+
+HEADER H1
+{
+	margin-left:0;
+}
+
+#Start:hover, #Stop:hover, #Reset:hover, #Clear:hover, #Example:hover {
+	color: #d5d5d5;
+}
+
+
+#Start, #Stop, #Reset, #Clear {
+	width: 100px;
+	height: 70px;
+	font-size: 25px;
+	border-radius: 50%;
+	background-color: #FF0000;
+	color: #0000FF;
+}
+
+#Example {
+	width: 100px;
+	height: 70px;
+	font-size: 20px;
+	border-radius: 50%;
+	background-color: #FF0000;
+	color: #0000FF;
+}
+
+/* Dark style ------------------------------------------------------- */
+
+.dark
+{
+	background-color:#05386B;
+	padding:1em;
+	transition:max-height 0.5s;
+}
+
+.dark A
+{
+	color:#8EE4AF;
+	margin-right:1.5em;
+}
+
+.dark A:hover
+{
+	color:#EDF5E1;
+}
+
+/* light style ------------------------------------------------------ */
+
+.light
+{
+	background-color:#FFFFFF;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+
+SECTION#canvasContainer
+{
+	width:100%;
+	background-color:#007bff;
+	min-height:600px;
+}
+
+SECTION#canvasContainer ASIDE
+{
+	width:25%;
+	padding:0;
+	min-height:600px;
+	display:block;
+	float:right;
+}
+
+SECTION#canvasContainer CANVAS
+{
+	width:70%;
+	max-width:800px;
+	display:block;
+	float:left;
+}
+
+SECTION P INPUT,SECTION P SELECT
+{
+	margin-left:1em;
+}
+
+ASIDE H3,ASIDE H4,ASIDE P, ASIDE A
+{
+	margin-left:0.5em;
+}
+
+
+/**********************************************************************/
+@media screen and (max-width: 1280px)
+{
+	ARTICLE
+	{
+		width:100%;
+		margin-left:default;
+		margin-right:default;
+	}
+	
+	HEADER
+	{
+		width:100%;
+		margin-left:default;
+		margin-right:default;
+	}
+				
+	SECTION#canvasContainer
+	{
+		width:100%;
+		float:none;
+		padding:0;
+		min-height:auto;
+	}
+	
+	SECTION#canvasContainer ASIDE
+	{
+		width:100%;
+		float:none;
+		min-height:auto;
+	}
+	
+	SECTION#canvasContainer CANVAS
+	{
+		width:100%;
+		margin-left:auto;
+		margin-right:auto;
+		float:none;
+	}
+	
+}
+
+/**********************************************************************/
+@media screen and (max-width: 768px)
+{
+	SECTION#canvasContainer CANVAS
+	{
+		max-width:auto;
+	}
+}
+	
+/**********************************************************************/
+@media screen and (max-width: 550px)
+{
+
+}
+
+/**********************************************************************/
+@media screen and (max-width: 380px)
+{	
+
+	
+}
