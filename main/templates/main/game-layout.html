@@ -11,7 +11,7 @@
   <div class="container-fluid padding">
     <div class="row welcome text-center">
       <div class="col-12">
-        <h1 class="display-4"> Here are some 2D variations </h1>
+        <h1 class="display-4"> Play in either 2D or 3D </h1>
       </div>
       <hr>
     </div>
@@ -23,8 +23,8 @@
         <div class="card">
           <img src="{% static 'images/wireworld_image.png' %}"class="card-img-top">
           <div class="card-body">
-            <h4 class= "card-title"> Wireworld </h4>
-            <p class="card-text"> Click here to play wireworld variation</p>
+            <h4 class= "card-title"> 2D game (Wireworld) </h4>
+            <p class="card-text"> Click here to play Wireworld </p>
             <a href="{% url 'wireworld' %}" class="btn btn-outline-secondary"> Wireworld </a>
           </div>
         </div>
@@ -32,11 +32,11 @@
 
       <div class="col-md-6">
         <div class="card">
-          <img src="{% static '' %}"class="card-img-top">
+          <img src="{% static 'images/3d_image.png' %}"class="card-img-top">
           <div class="card-body">
-            <h4 class= "card-title"> Conways game of life </h4>
-            <p class="card-text"> Click here to play a Conways game of life  </p>
-            <a href="r-p-s/" class="btn btn-outline-secondary"> Game of Life </a>
+            <h4 class= "card-title"> 3D game of life </h4>
+            <p class="card-text"> Click here to create your own variation in 3D </p>
+            <a href="{% url '3d-game' %}" class="btn btn-outline-secondary"> Game of Life </a>
           </div>
         </div>
       </div>

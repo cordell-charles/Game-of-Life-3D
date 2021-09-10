@@ -20,7 +20,7 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
-from .views import landing_page_view, game_view, review_view, info_view, wireworld_view, game_layout_view, game_of_life_3d_view
+from .views import landing_page_view, game_view, review_view, info_view, wireworld_view, game_layout_view, game_of_life_3d_projection_view, game_of_life_3d_playable_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +30,8 @@ urlpatterns = [
     path('review/', review_view, name='review'),
     path('game-layout', game_layout_view, name='game-layout'),
     path('wireworld/', wireworld_view, name='wireworld'),
-    path('3d-variation/', game_of_life_3d_view, name='3d-game')
+    path('3d-projection/', game_of_life_3d_projection_view, name='3d-projection'),
+    path('3d-game/', game_of_life_3d_playable_view, name='3d-game')
 ]
 
 

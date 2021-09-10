@@ -1,0 +1,25 @@
+
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 3D Projection </title>
+        <link rel="stylesheet" href="{% static 'stylesheets/3d-game-style.css' %}">
+    </head>
+    <body>
+        <script src="{% static 'javascript/3d-gol-projection/three-js/three.min.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol-projection/three-js/OrbitControls.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol-projection/dat-gui/dat.gui.min.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol-projection/CA.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol-projection/sceneManager.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol-projection/game.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol-projection/gameSettings.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol-projection/user-controls.js' %}"></script>
+        <script src="{% static 'javascript/3d-gol-projection/main.js' %}"></script>
+    </body>
+</html>
+{% endblock %}

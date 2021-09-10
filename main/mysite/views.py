@@ -39,9 +39,15 @@ def wireworld_view(request):
     return render(request, template_name, {})
 
 
-def game_of_life_3d_view(request):
-    template_name = 'gameSpace/game-of-life-3d.html'
+def game_of_life_3d_projection_view(request):
+    template_name = 'gameSpace/game-of-life-3d-projection.html'
     return render(request, template_name, {})
+
+
+def game_of_life_3d_playable_view(request):
+    template_name = 'gameSpace/game-of-life-3d-playable.html'
+    return render(request, template_name, {})
+
 
 def review_view(request):
     template_name = 'main/review.html'
@@ -51,8 +57,9 @@ def review_view(request):
     if form.is_valid():
         title = form.cleaned_data['title']
         content = form.cleaned_data['content']
+        image = form.cleaned_data['image']
         name = form.cleaned_data['name']
-        obj = ReviewPost.objects.create(title=title, content=content, name=name)
+        obj = ReviewPost.objects.create(title=title, content=content, image=image, name=name)
         obj.save()
         return HttpResponseRedirect(reverse('review'))
     
