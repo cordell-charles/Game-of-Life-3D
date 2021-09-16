@@ -12,25 +12,26 @@
 <div class= "container-fluid padding">
 	<div class="row text-center padding">
 		<div class="col-12">
-			<h1> Feel free to leave any comments below! </h1>
+			<h1> Write your thoughts below! </h1>
 		</div>
 	</div>
 </div>
 
-<div class="container-fluid padding">
-	<div class="row text-center padding">
-		<div class="col-12">
-			<h5> Please feel free to use this space to leave any comments towards the platform. </h5>
-			<h5> Any problems you may have come across, features that did not work or any improvements that have come to mind, comment down below and your post will be saved.</h5>
+<div class="container-fluid">
+	<div class="row text-center">
+		<div class="col-6 mx-auto">
+			<p> Please feel free to use this space to leave any comments towards the platform. </p>
+			<p> Any problems you may have come across, features that did not work or any improvements that have come to mind, comment down below and your post will be saved.</p>
 		</div>
 	</div>
 </div>
 
-{% for object in objects %}
+
 <div class="container-fluid padding">
 	<div class="row padding">
-		<div class="col-2 mx-auto">
-			<div class="card" style="width:20rem;">
+		{% for object in objects %}
+		<div class="col-sm-6 padding">
+			<div class="card" style="width:50rem;">
 				{% if object.image %}
 					<img class="card-img-top" src="{{object.image.url}}" alt="Card image cap"> 
 				{% endif %}
@@ -42,9 +43,10 @@
 				</div>
 			</div>
 		</div>
+		{% endfor %}
 	</div>
 </div>
-{% endfor %}
+
 
 <div class="fixed-background">
 	<div class="col-12 text-center text=uppercase mt-5">

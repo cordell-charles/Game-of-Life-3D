@@ -46,17 +46,6 @@ class userControls {
         cursorControls.add(toggleButton, 'toggle').name("Toggle Cell");
         cursorControls.open();
 
-        this.randomSelection(cursorControls);
-    }
-
-    randomSelection(parentFolder) {
-        const randomiseNbrsFolder = parentFolder.addFolder("Randomise");
-        const randomiseAroundCursorButton = { randomise: () => {this.game.randomiseNeighbors(this.controller.cursor.position, this.nbrsBecomeAliveProbability)
-        }};
-        randomiseNbrsFolder.add(this, 'nbrsBecomeAliveProbability', 0.1, 1).name('Probability').step(0.1);
-        randomiseNbrsFolder.add(randomiseAroundCursorButton, 'randomise').name('Random selection');
-
-        randomiseNbrsFolder.open();
     }
     
     updateCursorPosition() {
@@ -71,8 +60,8 @@ class userControls {
     setupAppearanceFolder() {
         const appearanceControls = this.gui.addFolder("Cells Appearance");
 
-        appearanceControls.add(this.settings.appearance, 'materialOpacity', 0.01, 1).name('Opacity').step(0.01).onChange(() => this.appearance.setMaterialOpacity(this.settings.appearance.materialOpacity));
-        appearanceControls.addColor(this.settings.appearance, 'materialColor').name('Color').onChange(() => this.appearance.setCubesMaterialColor(this.settings.appearance.materialColor));
+        appearanceControls.add(this.settings.appearance, 'materialOpacity', 0.01, 1).name('Transparency').step(0.01).onChange(() => this.appearance.setMaterialOpacity(this.settings.appearance.materialOpacity));
+        appearanceControls.addColor(this.settings.appearance, 'materialColor').name('Colour').onChange(() => this.appearance.setCubesMaterialColor(this.settings.appearance.materialColor));
 
         appearanceControls.open();
     }
@@ -86,6 +75,10 @@ class userControls {
 
         projectionControls.add(this.projection, 'speed', 0.5, 4).name('Speed').step(0.5).onChange(this.setProjectionSpeed.bind(this));
         projectionControls.add(this.projection, 'isRunning').name('Run').onChange(this.switchProjectionState.bind(this));
+        
+        const rotateButton = { rotate: () => this.game.rotate() };
+        projectionControls.add(rotateButton, 'rotate').name("Rotatation");
+
 
         const clearButton = { clear: () => this.game.clear() };
         projectionControls.add(clearButton, 'clear').name("Clear");

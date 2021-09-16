@@ -2,7 +2,7 @@ class Cell {
 
     constructor(index, x, y, z) {
         this.index = index;
-        this.position = {x: x, y: y, z: z};
+        this.position = {x: x-25, y: y-25, z: z-25};
         this.isAlive = false;
         this.willDie = false;
         this.isBorn = false;
@@ -17,7 +17,6 @@ class Cell {
         this.isAlive = false;
         return this;
     }
-
 }
 
 
@@ -49,23 +48,25 @@ class cellAppearance {
         const world = this.settings.world;
         this.cubeBorder = [];
 
-        const a = { x: 0,            y:0,             z: 0 };
-        const b = { x: world.width,  y:0,             z: 0 };
-        const c = { x: 0,            y:world.height,  z: 0 };
-        const d = { x: world.height, y:world.height,  z: 0 };
-        const h = { x: 0,            y:0,             z: world.depth };
-        const g = { x: world.width,  y:0,             z: world.depth };
-        const e = { x: 0,            y:world.height,  z: world.depth };
-        const f = { x: world.height, y:world.height,  z: world.depth };
+        const a = { x: -world.width*0.5,  y:-world.height*0.5, z:-world.depth*0.5 };
+        const b = { x:  world.width*0.5,  y:-world.height*0.5, z:-world.depth*0.5 };
+        const c = { x: -world.width*0.5,  y: world.height*0.5, z:-world.depth*0.5 };
+        const d = { x:  world.width*0.5,  y: world.height*0.5, z:-world.depth*0.5 };
+        const h = { x: -world.width*0.5,  y:-world.height*0.5, z: world.depth*0.5 };
+        const g = { x:  world.width*0.5,  y:-world.height*0.5, z: world.depth*0.5 };
+        const e = { x: -world.width*0.5,  y: world.height*0.5, z: world.depth*0.5 };
+        const f = {x:world.width*0.5,  y: world.height*0.5, z: world.depth*0.5 };
 
         this.cubeBorder.push(this.sceneManager.drawLine(a, b, this.cubeBorderMaterial));
         this.cubeBorder.push(this.sceneManager.drawLine(b, d, this.cubeBorderMaterial));
         this.cubeBorder.push(this.sceneManager.drawLine(d, c, this.cubeBorderMaterial));
         this.cubeBorder.push(this.sceneManager.drawLine(c, a, this.cubeBorderMaterial));
+		
         this.cubeBorder.push(this.sceneManager.drawLine(h, g, this.cubeBorderMaterial));
         this.cubeBorder.push(this.sceneManager.drawLine(g, f, this.cubeBorderMaterial));
         this.cubeBorder.push(this.sceneManager.drawLine(f, e, this.cubeBorderMaterial));
         this.cubeBorder.push(this.sceneManager.drawLine(e, h, this.cubeBorderMaterial));
+		
         this.cubeBorder.push(this.sceneManager.drawLine(a, h, this.cubeBorderMaterial));
         this.cubeBorder.push(this.sceneManager.drawLine(b, g, this.cubeBorderMaterial));
         this.cubeBorder.push(this.sceneManager.drawLine(c, e, this.cubeBorderMaterial));
@@ -113,7 +114,7 @@ class Game {
 
         this.boxGeometry = new THREE.BoxGeometry();
 
-        this.world = new cellDetails(this.settings.world.width, this.settings.world.height, this.settings.world.depth);
+        this.world = new cell(this.settings.world.width, this.settings.world.height, this.settings.world.depth);
         this.sceneManager = new SceneManager(this.settings.scene, this.settings.camera);
         this.cubes = [];
         this.appearance = new cellAppearance(this);
@@ -122,13 +123,18 @@ class Game {
 
         //this.sceneManager.addAmbientLight(this.settings.scene.ambientLightColor);
         this.sceneManager.addLight({x:-1, y: 2, z: 4}, 0xFF0000, 1);
-        this.sceneManager.addLight({x: 1, y:-1, z:-2}, 0x00FFFF, 1);
+        this.sceneManager.addLight({x: 2, y:1, z:-4}, 0xFFA500, 1);
+        this.sceneManager.addLight({x: 1, y:-1, z:-2}, 0x66FF00, 1);
 
 
         this.isRunning = false;
         this.projectionSpeed = 2; // 1 = one step per second
         this.timers = [];
     }
+	
+	rotate() {
+		this.sceneManager.auto_rotate = !this.sceneManager.auto_rotate;
+	}
 
     populateWorld() {
         this.world.cells.forEach(c => {

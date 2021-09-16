@@ -5,14 +5,14 @@ class Settings {
             height: window.innerHeight,
             backgroundColor: 0x000000,
             borderLinesColor: 0x00FFFF,
-            ambientLightColor: 0x00FFFF,
+            ambientLightColor: 0xFFFFFF,
             cellOpacity: 0.5
         }
         
         this.worldSettings = {
-            width: 46,
-            height: 46,
-            depth: 46
+            width: 50,
+            height: 50,
+            depth: 50
         }
         
         this.cameraSettings = {
@@ -39,9 +39,9 @@ class Settings {
         // Any dead cell with count of neighbors == 'born' becomes a live cell
         this.gameSettings = {
             rules: {
-                underpopulated: 2,
-                overpopulated: 8,
-                born: 1
+                underpopulated: 7,
+                overpopulated: 15,
+                born: 2
             }
         }
 
@@ -50,7 +50,7 @@ class Settings {
             showNormalMaterial: false,
             materialOpacity: 0.67,
             materialColor: {
-                r: 255, //Originally 255
+                r: 0,
                 g: 255,
                 b: 255
             }

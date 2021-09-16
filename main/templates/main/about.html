@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> About </title>
+</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row about text-center jumbotron">
+				<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-3">
+					<h1> Some information about the Game of Life </h1>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-8">
+			  		<p> Developed by John Horton Conway, the game of life is a game that uses cells on a 2D or 3D space to base a set of rules and determine states to create a range of projections.</p>
+
+			  		<p> The states of cells can vary between games and projections but for a base understanding cells would either be alive (turned on / lit) or dead (turned off / unlit) along with a base rule set of the following: </p>
+
+			  		<ul style="list-style-type: none;">
+			  			<li>Any live cell with fewer than two live neighbours die, as if caused by under population.</li>
+			  			<li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+			  			<li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
+			  			<li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+			  		</ul>
+			  		<p> Following these and a unique starting state, many have created their own projections and patterns. Try your own variations in the view games tab </p> 
+			  	</div>
+			</div>
+		</div>
+		<div id="slides" class="carousel slide" data-ride="carousel">
+			<ul class="carousel-indicators">
+				<li data-target="#slides" data-slide-to="0" class="active"></li>
+				<li data-target="#slides" data-slide-to="1" class="active"></li>
+			</ul>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="{% static 'images/conway.png' %}">
+					<div class="carousel-caption">
+						<h1>John Horton Conway</h1>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="{% static 'images/gol_image.gif' %}">
+					<div class="carousel-caption">
+						<h1>Game of Life</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+{% endblock %}

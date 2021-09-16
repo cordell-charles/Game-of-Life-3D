@@ -7,8 +7,10 @@ class SceneManager {
         this.createRenderer();
         this.createCamera();
         this.animate();
-        //this.tick();
 
+		this.y_angle = 0.0;
+		this.auto_rotate = false;
+		
         window.addEventListener( 'resize', this.onWindowResize.bind(this), false );
     }
 
@@ -69,8 +71,28 @@ class SceneManager {
         return line;
     }
 
+	rotate()
+	{
+		//this.scene.position.x = -25.0;
+		//this.scene.position.y = -25.0;
+		//this.scene.position.z = -25.0;
+		//this.scene.position.x = 0;
+		//this.scene.position.Y = 0;
+		//this.scene.position.Z = 0;
+		//this.scene.modelViewMatrix.makeTranslation(-25,-25,-25);
+		if (this.auto_rotate) {
+			this.y_angle += 0.1;
+			if (this.y_angle > 360) {
+                this.y_angle -= 360;
+            }
+			this.scene.rotation.y = this.y_angle;
+		}
+	}
+
+
     animate() {
         requestAnimationFrame(this.animate.bind(this));
+		this.rotate();
         this.renderer.render(this.scene, this.camera);
     }
 
@@ -79,32 +101,4 @@ class SceneManager {
         this.camera.updateProjectionMatrix();
         this.renderer.setSize( window.innerWidth, window.innerHeight );
     }
-
-    /*
-
-    tick() {
-
-        const clock = new Clock()
-
-
-        const elapsedTime = clock.getElapsedTime()
-
-        // Update objects
-        //cube.rotation.x = .5 * elapsedTime
-        cube.rotation.y = .5 * elapsedTime
-
-        cube.rotation.x += .5 * (targetY - cube.rotation.x)
-        cube.rotation.y += .5 * (targetX - cube.rotation.y)
-        cube.position.z += .5 * (targetY - cube.rotation.x)
-
-        // Update Orbital Controls
-        // controls.update()
-
-        // Render
-        renderer.render(scene, camera)
-
-        // Call tick again on the next frame
-        window.requestAnimationFrame(tick)
-    }
-    */
 }

@@ -3,7 +3,7 @@ class Settings {
         this.sceneSettings = {
             width: window.innerWidth,
             height: window.innerHeight,
-            backgroundColor: 0x00008B,
+            backgroundColor: 0x000008B,
             borderLinesColor: 0x00FFFF,
             ambientLightColor: 0xFFFFFF,
             cellOpacity: 0.5
@@ -32,9 +32,9 @@ class Settings {
         // Any dead cell with count of neighbors == 'born' becomes a live cell
         this.gameSettings = {
             rules: {
-                underpopulated: 4, // original: 4
-                overpopulated: 12, // Original: 12
-                born: 1 // original: 1 or 2
+                underpopulated: 5, // original: 4
+                overpopulated: 10, // Original: 12
+                born: 3 // original: 1 or 2
             }
         }
 

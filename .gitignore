@@ -1,0 +1,8 @@
+# Virtual environments
+gol-venv
+
+# Openglcontext is not needed to run project
+openglcontext/
+
+# DS_store related files
+.DS_Store

@@ -16,52 +16,57 @@ def login_page_view(request):
     	return render(request, "login.html")
 """
 
+
 def landing_page_view(request):
-    template_name = 'main/threejs-landing.html'
+    template_name = "main/threejs-landing.html"
     return render(request, template_name, {})
 
 
 def game_view(request):
-    template_name = 'gameSpace/cube.html'
+    template_name = "gameSpace/cube.html"
     return render(request, template_name, {})
 
-def info_view(request):
-    template_name = 'gameSpace/2d-index.html'
+
+def about_view(request):
+    template_name = "main/about.html"
     return render(request, template_name, {})
+
 
 def game_layout_view(request):
-    template_name = 'main/game-layout.html'
+    template_name = "main/game-layout.html"
     return render(request, template_name, {})
 
 
 def wireworld_view(request):
-    template_name = 'gameSpace/wireworld.html'
+    template_name = "gameSpace/wireworld.html"
     return render(request, template_name, {})
 
 
 def game_of_life_3d_projection_view(request):
-    template_name = 'gameSpace/game-of-life-3d-projection.html'
+    template_name = "gameSpace/game-of-life-3d-projection.html"
     return render(request, template_name, {})
 
 
 def game_of_life_3d_playable_view(request):
-    template_name = 'gameSpace/game-of-life-3d-playable.html'
+    template_name = "gameSpace/game-of-life-3d-playable.html"
     return render(request, template_name, {})
 
 
 def review_view(request):
-    template_name = 'main/review.html'
+    template_name = "main/review.html"
 
-    #Form used for users to comment on platform
+    # Form used for users to comment on platform
     form = ReviewPostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
-        title = form.cleaned_data['title']
-        content = form.cleaned_data['content']
-        image = form.cleaned_data['image']
-        name = form.cleaned_data['name']
-        obj = ReviewPost.objects.create(title=title, content=content, image=image, name=name)
+        title = form.cleaned_data["title"]
+        content = form.cleaned_data["content"]
+        image = form.cleaned_data["image"]
+        name = form.cleaned_data["name"]
+        obj = ReviewPost.objects.create(
+            title=title, content=content, image=image, name=name
+        )
         obj.save()
-        return HttpResponseRedirect(reverse('review'))
-    
+        return HttpResponseRedirect(reverse("review"))
+
     objects = ReviewPost.objects.all()
-    return render(request, template_name, {'objects': objects, 'form':form})
+    return render(request, template_name, {"objects": objects, "form": form})

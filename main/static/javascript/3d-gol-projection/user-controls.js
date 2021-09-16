@@ -42,6 +42,10 @@ class userControls {
         const clearButton = { clear: () => this.game.clear() };
         projectionControls.add(clearButton, 'clear').name("Clear");
 
+        const rotateButton = { rotate: () => this.game.rotate() };
+        projectionControls.add(rotateButton, 'rotate').name("Rotatation");
+
+
         const resetButton = { new:function(){location.href="/3d-projection"}};
         projectionControls.add(resetButton, 'new').name("Reset")
 

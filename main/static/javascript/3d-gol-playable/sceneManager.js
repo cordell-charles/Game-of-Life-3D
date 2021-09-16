@@ -8,6 +8,9 @@ class SceneManager {
         this.createCamera();
         this.animate();
 
+        this.y_angle = 0.0;
+        this.auto_rotate = false;
+
         window.addEventListener( 'resize', this.onWindowResize.bind(this), false );
     }
 
@@ -67,8 +70,27 @@ class SceneManager {
         return line;
     }
 
+    rotate() {
+        //this.scene.position.x = -25.0;
+        //this.scene.position.y = -25.0;
+        //this.scene.position.z = -25.0;
+        //this.scene.position.x = 0;
+        //this.scene.position.Y = 0;
+        //this.scene.position.Z = 0;
+        //this.scene.modelViewMatrix.makeTranslation(-25,-25,-25);
+        if (this.auto_rotate) {
+            this.y_angle += 0.1;
+            if (this.y_angle > 360) {
+                this.y_angle -= 360;
+            }
+            this.scene.rotation.y = this.y_angle;
+        }
+    }
+
+
     animate() {
         requestAnimationFrame(this.animate.bind(this));
+        this.rotate();
         this.renderer.render(this.scene, this.camera);
     }
 

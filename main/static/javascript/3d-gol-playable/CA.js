@@ -6,19 +6,19 @@ class cell {
         this.depth = depth; // z-axis
         
         this.center = {
-			/*
+            /*
             x: Math.floor(width / 2),
             y: Math.floor(height / 2),
             z: Math.floor(depth / 2)
-			*/
-			
+            */
+            
             x: 0,
             y: 0,
             z: 0
-			
-			
+            
+            
         };
-        
+
         this.cells = [];
 
         for(var i = 0; i < height * width * depth; i++) {
@@ -31,6 +31,7 @@ class cell {
         }
     }
 
+
     getCellNeighbors(cell) {
         const cell1 = this.getCellPosition(cell.position.x,cell.position.y + 1,cell.position.z);
         const cell2 = this.getCellPosition(cell.position.x,cell.position.y + 1,cell.position.z + 1);
@@ -41,25 +42,23 @@ class cell {
         const cell7 = this.getCellPosition(cell.position.x - 1,cell.position.y + 1,cell.position.z);
         const cell8 = this.getCellPosition(cell.position.x - 1,cell.position.y + 1,cell.position.z + 1)
         const cell9 = this.getCellPosition(cell.position.x - 1,cell.position.y + 1,cell.position.z - 1)
-        const cell10 = this.getCellPosition(cell.position.x,cell.position.y - 1,cell.position.z);
-        const cell11 = this.getCellPosition(cell.position.x,cell.position.y - 1,cell.position.z + 1);
-        const cell12 = this.getCellPosition(cell.position.x,cell.position.y - 1,cell.position.z - 1);
-        const cell13 = this.getCellPosition(cell.position.x + 1,cell.position.y - 1,cell.position.z);
-        const cell14 = this.getCellPosition(cell.position.x + 1,cell.position.y - 1,cell.position.z + 1);
-        const cell15 = this.getCellPosition(cell.position.x + 1,cell.position.y - 1,cell.position.z - 1);
-        const cell16 = this.getCellPosition(cell.position.x - 1,cell.position.y - 1,cell.position.z);
-        const cell17 = this.getCellPosition(cell.position.x - 1,cell.position.y - 1,cell.position.z + 1);
-        const cell18 = this.getCellPosition(cell.position.x - 1,cell.position.y - 1,cell.position.z - 1);
-        const cell19 = this.getCellPosition(cell.position.x,cell.position.y,cell.position.z + 1);
-        const cell20 = this.getCellPosition(cell.position.x,cell.position.y,cell.position.z - 1);
-        const cell21 = this.getCellPosition(cell.position.x + 1,cell.position.y,cell.position.z);
-        const cell22 = this.getCellPosition(cell.position.x + 1,cell.position.y,cell.position.z + 1);
-        const cell23 = this.getCellPosition(cell.position.x + 1,cell.position.y,cell.position.z - 1);
-        const cell24 = this.getCellPosition(cell.position.x - 1,cell.position.y,cell.position.z);
-        const cell25 = this.getCellPosition(cell.position.x - 1,cell.position.y,cell.position.z + 1);
-        const cell26 = this.getCellPosition(cell.position.x - 1,cell.position.y,cell.position.z - 1);
-
-
+        const cell10 = this.getCellPosition(cell.position.x,cell.position.y,cell.position.z - 1);
+        const cell11 = this.getCellPosition(cell.position.x + 1,cell.position.y,cell.position.z);
+        const cell12 = this.getCellPosition(cell.position.x + 1,cell.position.y,cell.position.z + 1);
+        const cell13 = this.getCellPosition(cell.position.x + 1,cell.position.y,cell.position.z - 1);
+        const cell14 = this.getCellPosition(cell.position.x - 1,cell.position.y,cell.position.z);
+        const cell15 = this.getCellPosition(cell.position.x - 1,cell.position.y,cell.position.z + 1);
+        const cell16 = this.getCellPosition(cell.position.x - 1,cell.position.y,cell.position.z - 1);
+        const cell17 = this.getCellPosition(cell.position.x,cell.position.y - 1,cell.position.z);
+        const cell18 = this.getCellPosition(cell.position.x,cell.position.y - 1,cell.position.z + 1);
+        const cell19 = this.getCellPosition(cell.position.x,cell.position.y - 1,cell.position.z - 1);
+        const cell20 = this.getCellPosition(cell.position.x + 1,cell.position.y - 1,cell.position.z);
+        const cell21 = this.getCellPosition(cell.position.x + 1,cell.position.y - 1,cell.position.z + 1);
+        const cell22 = this.getCellPosition(cell.position.x + 1,cell.position.y - 1,cell.position.z - 1);
+        const cell23 = this.getCellPosition(cell.position.x - 1,cell.position.y - 1,cell.position.z);
+        const cell24 = this.getCellPosition(cell.position.x - 1,cell.position.y - 1,cell.position.z + 1);
+        const cell25 = this.getCellPosition(cell.position.x - 1,cell.position.y - 1,cell.position.z - 1);
+        const cell26 = this.getCellPosition(cell.position.x,cell.position.y,cell.position.z + 1);
 
 
         return [ 
